@@ -15,3 +15,17 @@ resource "azurerm_mssql_database" "db" {
     tags = var.tags
 }
 
+resource "azurerm_redis_cache" "redis" {
+    name = "redis-${var.project_name}-${var.environment}"
+    location = var.location
+    resource_group_name = azurerm_resource_group.rg.name
+    capacity = 1
+    family = "C"
+    sku_name = "Basic"
+    tags = var.tags
+    non_ssl_port_enabled = false
+    redis_configuration {
+      
+    }
+}
+
