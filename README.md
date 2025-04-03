@@ -6,3 +6,4 @@ Infra-Core(Infraestructura Base)
  - Caché storage(Redis)
  - Queue service
  - Search Service
+ - CloudStorage
