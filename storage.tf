@@ -12,3 +12,8 @@ resource "azurerm_storage_container" "cointainer1" {
     container_access_type = "private"
     storage_account_id = azurerm_storage_account.staccount.id
 }
+
+resource "azurerm_storage_queue" "staqueue" {
+  name = "backgroundqueue"
+  storage_account_name = azurerm_storage_account.staccount.name
+}
