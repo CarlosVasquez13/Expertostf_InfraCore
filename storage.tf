@@ -6,3 +6,9 @@ resource "azurerm_storage_account" "staccount" {
     account_replication_type = "LRS"
     tags = var.tags
 }
+
+resource "azurerm_storage_container" "cointainer1" {
+    name = "filescontainer"
+    container_access_type = "private"
+    storage_account_id = azurerm_storage_account.staccount.id
+}
