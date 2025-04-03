@@ -1,5 +1,5 @@
 resource "azurerm_mssql_server" "sqlserver" {
-  name = "dbserver-${var.resource_group_name}-${var.environment}"
+  name = "dbserver-${var.project_name}-${var.environment}"
   resource_group_name = azurerm_resource_group.rg.name
   location = var.location
   version = "12.0"
@@ -9,7 +9,7 @@ resource "azurerm_mssql_server" "sqlserver" {
 }
 
 resource "azurerm_mssql_database" "db" {
-    name = "db-${var.resource_group_name}-${var.environment}"
+    name = "db-${var.project_name}-${var.environment}"
     server_id = azurerm_mssql_server.sqlserver.id
     sku_name = "S0"
     tags = var.tags

@@ -3,7 +3,7 @@ variable "subscription_id" {
   type        = string
 }
 
-variable "resource_group_name" {
+variable "project_name" {
   description = "The name of the resource group where the resources will be created."
   type        = string
   default = "expertostf"
