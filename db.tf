@@ -13,7 +13,7 @@ resource "azurerm_mssql_database" "db" {
     server_id = azurerm_mssql_server.sqlserver.id
     sku_name = "S0"
     tags = var.tags
-}
+}     
 
 resource "azurerm_redis_cache" "redis" {
     name = "redis-${var.project_name}-${var.environment}"
@@ -29,3 +29,13 @@ resource "azurerm_redis_cache" "redis" {
     }
 }
 
+resource "azurerm_search_service" "search" {
+  name = "search-${var.project_name}-${var.environment}"
+  resource_group_name = "rg-${var.project_name}-${var.environment}"
+  location = var.location
+  sku = "basic"
+  partition_count = 1
+  replica_count = 1
+  tags = var.tags
+  
+}
